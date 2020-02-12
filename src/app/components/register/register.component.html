@@ -1,0 +1,41 @@
+
+<div class="container">
+	<form [formGroup]="userForm" (ngSubmit)="SubmitForm(userForm.value)">
+	<div class="row">
+		<h1><i class="fa fa-lock" aria-hidden="true"></i> Register</h1>
+	</div><br /><br /> 
+		<div>
+			<input type="text"  class="form-control" placeholder="First Name"
+			[class.is-valid]="userForm.controls.firstName.valid"
+			[class.is-invalid]="!userForm.controls.firstName.valid && submitted"
+			formControlName="firstName"
+			>
+		</div><br/>
+		<div class="input-group">
+			<input type="text"  class="form-control" placeholder="Last Name"
+			[class.is-valid]="userForm.controls.lastName.valid"
+			[class.is-invalid]="!userForm.controls.lastName.valid && submitted"
+			formControlName="lastName"
+			>
+		</div><br />
+		<div formGroupName="userLogin">
+		<div class="input-group">
+			<input type="text"  class="form-control" placeholder="Email Id"
+			[class.is-valid]="userForm.controls.userLogin.controls.emailId.valid"
+			[class.is-invalid]="!userForm.controls.userLogin.controls.emailId.valid && submitted"
+			formControlName="emailId"
+			>
+		</div><br />
+		<div class="input-group">
+			<input type="text"  class="form-control" placeholder="Password"
+			[class.is-valid]="userForm.controls.userLogin.controls.password.valid"
+			[class.is-invalid]="!userForm.controls.userLogin.controls.password.valid && submitted"
+			formControlName="password"
+			>
+		</div><br />
+		</div>
+		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Register</button>
+	<div class="footer">	
+	</div>
+	</form> 
+	</div>

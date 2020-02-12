@@ -1,0 +1,32 @@
+
+<div class="container">
+	<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+	<div class="row">
+		 <h1><i class="fa fa-lock" aria-hidden="true"></i> Login</h1>
+        </div><br /><br />      
+		<div formGroupName="userLogin">
+			<div class="input-group">
+				<input type="text"  class="form-control" placeholder="Email Id"
+				[class.is-valid]="userForm.controls.userLogin.controls.emailId.valid"
+				[class.is-invalid]="!userForm.controls.userLogin.controls.emailId.valid && submitted"
+				formControlName="emailId"
+				>
+			</div><br />
+			<div class="input-group">
+				<input type="text"  class="form-control" placeholder="Password"
+				[class.is-valid]="userForm.controls.userLogin.controls.password.valid"
+				[class.is-invalid]="!userForm.controls.userLogin.controls.password.valid && submitted"
+				formControlName="password"
+				>
+			</div><br />
+			</div>           
+        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Login</button>
+        OR
+        <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span>Login with Facebook </button><br />
+               <br /> <div style="border:1px solid black;height:1px;width:365px;"></div><br />
+        <div class="footer">
+                  <p>Don't have an Account! <a href="register">Sign Up Here</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+	</form>
+	</div>
