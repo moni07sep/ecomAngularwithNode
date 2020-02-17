@@ -8,7 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import{ ReactiveFormsModule }from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {HttpClientModule} from '@angular/common/http'
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

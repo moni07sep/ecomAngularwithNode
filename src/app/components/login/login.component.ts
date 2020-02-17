@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  public showErrorMessage:string;
   public userForm:FormGroup;
   public submitted:boolean=false;
   
@@ -35,6 +35,11 @@ export class LoginComponent implements OnInit {
       alert("login succsesful");
       console.log(item)
       this.router.navigateByUrl("/home");   
-    })
+    },
+    (ex:any) => {
+      console.log(ex.error);
+this.showErrorMessage = ex.error.messsage
+    }
+    )
   }
 }

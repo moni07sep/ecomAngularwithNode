@@ -8,7 +8,9 @@ import { map } from "rxjs/operators";
 export class registerService{
     private register_endpoint="http://localhost:4600/api/createnewuser";
     private login_endpoint="http://localhost:4600/api/auth";
-    private LoggedIn_ENDPOINT="http://localhost:4600/api/me"
+    private LoggedIn_ENDPOINT="http://localhost:4600/api/me";
+    private forgotPassword_mail_endpoint="http://localhost:4600/api/mail/nodemailer";
+    //private forgotPassword_endpoint="http://localhost:4600/api/forgotpassword/:token";
     public headers:HttpHeaders
     //public loggedIn: BehaviorSubject<ILogin>;
     //private userData:Observable<ILogin>;
@@ -47,6 +49,9 @@ export class registerService{
                     }
         }));
 
+    }
+    sendMail(data){
+        return this.http.post<any>(this.forgotPassword_mail_endpoint,JSON.stringify(data), { headers: this.headers });
     }
     Logout() {
         localStorage.removeItem("currentuser");
