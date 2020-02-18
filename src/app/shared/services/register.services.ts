@@ -10,7 +10,7 @@ export class registerService{
     private login_endpoint="http://localhost:4600/api/auth";
     private LoggedIn_ENDPOINT="http://localhost:4600/api/me";
     private forgotPassword_mail_endpoint="http://localhost:4600/api/mail/nodemailer";
-    //private forgotPassword_endpoint="http://localhost:4600/api/forgotpassword/:token";
+    private forgotPassword_reset_endpoint="http://localhost:4600/api/forgotpassword/:token";
     public headers:HttpHeaders
     //public loggedIn: BehaviorSubject<ILogin>;
     //private userData:Observable<ILogin>;
@@ -51,7 +51,18 @@ export class registerService{
 
     }
     sendMail(data){
-        return this.http.post<any>(this.forgotPassword_mail_endpoint,JSON.stringify(data), { headers: this.headers });
+        return this.http.post<any>(this.forgotPassword_mail_endpoint,JSON.stringify(data), 
+        { headers: this.headers });
+    }
+    resetPassword(data,token){
+
+        return this.http.post<any>('http://localhost:4600/api/forgotpassword/'+token ,JSON.stringify(data), 
+        { headers: this.headers });
+        // { headers: {
+        //     'Access-Control-Allow-Origin': '*',
+        //     'Accept': 'application/json',
+        //     'Content-Type': 'application/json',
+        // }, })   
     }
     Logout() {
         localStorage.removeItem("currentuser");
