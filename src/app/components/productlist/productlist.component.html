@@ -1,0 +1,393 @@
+
+<div class="header-bottom-w3ls">
+	<div class="container">
+		<div class="col-md-7 navigation-agileits">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header nav_2">
+					<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> 
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav ">
+						<li><a href="index.html" class="hyper "><span>Home</span></a></li>	
+						<li class="dropdown ">
+							<a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Clothing<b class="caret"></b></span></a>
+								<ul class="dropdown-menu multi">
+									<div class="row">
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+			
+												<li><a href="women.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Women's Clothing</a></li>
+												<li><a href="men.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's Clothing</a></li>
+												<li><a href="kids.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Kid's Wear</a></li>
+												<li><a href="party.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Party Wear</a></li>
+										
+											</ul>
+										
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="casuals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Casuals</a></li>
+												<li><a href="night.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Night Wear</a></li>
+												<li><a href="formals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Formals</a></li>
+												<li><a href="inner.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Inner Wear</a></li>
+										
+											</ul>						
+										</div>
+										<div class="col-sm-4 w3l">
+											<a href="women.html"><img src="../../../assets/images/menu1.jpg" class="img-responsive" alt=""></a>
+										</div>
+										<div class="clearfix"></div>
+									</div>	
+								</ul>
+						</li>
+						<li class="dropdown active">
+								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Personal Care <b class="caret"></b></span></a>
+								<ul class="dropdown-menu multi multi1">
+									<div class="row">
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="jewellery.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Jewellery </a></li>
+												<li><a href="watches.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Watches</a></li>
+												<li><a href="cosmetics.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
+												<li><a href="deos.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Perfumes</a></li>
+										
+											</ul>
+											
+										</div>
+										<div class="col-sm-4">
+											
+											<ul class="multi-column-dropdown">
+												<li><a href="haircare.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Hair Care </a></li>
+												<li><a href="shoes.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Shoes</a></li>
+												<li><a href="handbags.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Handbags</a></li>
+												<li><a href="skincare.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Skin care</a></li>
+										
+											</ul>
+											
+										</div>
+										<div class="col-sm-4 w3l">
+											<a href="jewellery.html"><img src="../../../assets/images/menu2.jpg" class="img-responsive" alt=""></a>
+										</div>
+										<div class="clearfix"></div>
+									</div>	
+								</ul>
+						</li>
+						<li><a href="about.html" class="hyper"><span>About</span></a></li>
+						<li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+								<script>
+				$(document).ready(function(){
+					$(".dropdown").hover(            
+						function() {
+							$('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+							$(this).toggleClass('open');        
+						},
+						function() {
+							$('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+							$(this).toggleClass('open');       
+						}
+					);
+				});
+				</script>
+		<div class="col-md-4 search-agileinfo">
+			<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+				<input type="search" name="Search" placeholder="Search for a Product..." required="">
+				<button type="submit" class="btn btn-default search" aria-label="Left Align">
+					<i class="fa fa-search" aria-hidden="true"> </i>
+				</button>
+			</form>
+		</div>
+		<div class="col-md-1 cart-wthree">
+			<div class="cart"> 
+				<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+					<input type="hidden" name="cmd" value="_cart" />
+					<input type="hidden" name="display" value="1" />
+					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+				</form>  
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="container">
+		<div class="col-md-4 w3ls_dresses_grid_left">
+			<div class="w3ls_dresses_grid_left_grid">
+				<h3>Categories</h3>
+					<div class="w3ls_dresses_grid_left_grid_sub">
+						<div class="ecommerce_dres-type">
+							<ul>
+								<li><a href="watches.html">Leather strap</a></li>
+								<li><a href="watches.html">Steel strap</a></li>
+								<li><a href="watches.html">Chain type</a></li>
+								<li><a href="watches.html">Iron strap</a></li>
+							</ul>
+						</div>
+					</div>
+			</div>
+			<div class="w3ls_dresses_grid_left_grid">
+				<h3>Color</h3>
+				<div class="w3ls_dresses_grid_left_grid_sub">
+					<div class="ecommerce_color">
+						<ul>
+							<li><a href="#"><i></i> Red(5)</a></li>
+							<li><a href="#"><i></i> Brown(2)</a></li>
+							<li><a href="#"><i></i> Yellow(3)</a></li>
+							<li><a href="#"><i></i> Violet(6)</a></li>
+							<li><a href="#"><i></i> Orange(2)</a></li>
+							<li><a href="#"><i></i> Blue(1)</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="w3ls_dresses_grid_left_grid">
+				<h3>Size</h3>
+				<div class="w3ls_dresses_grid_left_grid_sub">
+					<div class="ecommerce_color ecommerce_size">
+						<ul>
+							<li><a href="#">Medium</a></li>
+							<li><a href="#">Large</a></li>
+							<li><a href="#">Extra Large</a></li>
+							<li><a href="#">Small</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="w3ls_dresses_grid_left_grid">
+				<div class="dresses_img_hover">
+					<img src="../../../assets/images/offer5.jpg" alt=" " class="img-responsive" />
+					<div class="dresses_img_hover_pos">
+						<h4>Upto<span>30%</span><i>Off</i></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-8 women-dresses">
+			<div class="women-set1">
+				<div class="col-md-4 women-grids wp1 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap1.jpg" alt="" />
+						<div class="p-mask">
+                            <form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="50.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star gray-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$50.00</h5>
+				</div>
+				<div class="col-md-4 women-grids wp2 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap2.jpg" alt="" />
+						<div class="p-mask">
+                            <form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="70.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star gray-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$70.00</h5>
+				</div>
+				<div class="col-md-4 women-grids wp3 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap3.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="90.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star gray-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$90.00</h5>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="women-set2">
+				<div class="col-md-4 women-grids wp4 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap4.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="100.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star gray-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$100.00</h5>
+				</div>
+				<div class="col-md-4 women-grids wp5 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap5.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="120.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$120.00</h5>
+				</div>
+				<div class="col-md-4 women-grids wp6 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap6.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="160.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$160.00</h5>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="women-set3">
+				<div class="col-md-4 women-grids mp7 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap7.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="110.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$110.00</h5>
+				</div>
+				<div class="col-md-4 women-grids wp8 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap8.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="180.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$180.00</h5>
+				</div>
+				<div class="col-md-4 women-grids wp9 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="single.html"><div class="product-img">
+						<img src="../../../assets/images/wap9.jpg" alt="" />
+						<div class="p-mask">
+							<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="add" value="1" /> 
+								<input type="hidden" name="w3ls1_item" value="Watch" /> 
+								<input type="hidden" name="amount" value="130.00" /> 
+								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</form>
+						</div>
+					</div></a>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+					<h4>Watch</h4>
+					<h5>$130.00</h5>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- newsletter -->
+	<div class="newsletter">
+		<div class="container">
+			<div class="col-md-6 w3agile_newsletter_left">
+				<h2>Newsletter</h2>
+				<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+			</div>
+			<div class="col-md-6 w3agile_newsletter_right">
+				<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+					<input type="submit" value="Subscribe" />
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //newsletter -->
+<div class="footer">

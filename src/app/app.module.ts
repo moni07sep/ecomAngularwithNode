@@ -10,7 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import{ ReactiveFormsModule }from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
-import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component'
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { ProductlistComponent } from './components/productlist/productlist.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     LoginComponent,
     HomeComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    ProductlistComponent
   ],
   imports: [
     BrowserModule,

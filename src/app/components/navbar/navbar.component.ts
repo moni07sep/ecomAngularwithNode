@@ -1,6 +1,7 @@
 import { registerService } from './../../shared/services/register.services';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
+import {Validators,FormBuilder,FormGroup}from '@angular/forms'
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +10,14 @@ import {Router} from '@angular/router'
 })
 export class NavbarComponent implements OnInit {
   public currentUser;
-  constructor(private registerService:registerService,private router:Router) { }
-
+  constructor(private fg :FormBuilder,private registerService:registerService,private router:Router) { }
+  public userForm:FormGroup;
   ngOnInit() {
     this.registerService.loggedInuser.subscribe(data => {
-      
-      this.currentUser = data;
-      //alert(this.currentUser);
-      //console.log(this.currentUser);
+    this.currentUser = data;
+    this.userForm = this.fg.group({
+      search:''
+    })
     })
   }
   Logout() {

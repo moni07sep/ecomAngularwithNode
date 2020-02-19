@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit   } from '@angular/core';
 import { registerService } from './../../shared/services/register.services';
-
+import {Validators,FormGroup,FormBuilder} from '@angular/forms'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,11 +8,19 @@ import { registerService } from './../../shared/services/register.services';
 })
 export class HomeComponent implements OnInit {
   
-  constructor(private registerService:registerService) { }
-
+  constructor(private fg :FormBuilder,private registerService:registerService) { }
+  public userForm:FormGroup;
+  
   ngOnInit() {
     this.registerService.userData().subscribe(data => {
     })
+    this.userForm = this.fg.group({
+      search:''
+    })
+    
+    //.homeForm=fg.f
   }
+  
+  
 
 }
