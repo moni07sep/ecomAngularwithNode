@@ -19,5 +19,5 @@ export interface ILogin{
     userLogin: {
         emailId: string,
         password: string
-    },
+    }
 }

@@ -48,8 +48,22 @@
 				</div>
 			</div>
 			<div class="col-8">
-				<!-- <div><app-saleproduct></app-saleproduct></div> -->
-				<div><app-allproduct></app-allproduct></div>
+        <div class="container" >
+          <div class="row" style="display: inline-flex;flex-direction: row;">
+              <div  *ngFor="let pro of saleprolist" style="flex:1 0 30%">
+                
+                     <div class="card text-black bg-light" style="margin: 10px;">
+                       <div class="card-body">
+                         
+                         <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}">
+                         <h4 class="card-title">{{pro.name}}</h4>
+                         <p class="card-text">Price : {{pro.price}}</p>
+                         <p class="card-text">Offer Price : {{pro.offerPrice}}</p>
+                       </div>
+                     </div>
+              </div>
+          </div>
+      </div>
 			</div>
 		</div>
 	</div>

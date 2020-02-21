@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
+import { SaleproductComponent } from './components/saleproduct/saleproduct.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:"productlist",
     component:ProductlistComponent,
+  },
+  {
+    path:"saleproduct",
+    component:SaleproductComponent,
   },
   {
     path:"resetpassword/:token",
