@@ -7,6 +7,7 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { SaleproductComponent } from './components/saleproduct/saleproduct.component';
+import { ProductviewComponent } from './components/productview/productview.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,14 @@ const routes: Routes = [
   {
     path:"resetpassword/:token",
     component:ResetpasswordComponent
+  },
+  {
+    path:"category/:id/page/:index",
+    component:ProductlistComponent
+  },
+  {
+    path:"productview/:id",
+    component:ProductviewComponent
   }
   
 

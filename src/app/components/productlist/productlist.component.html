@@ -8,12 +8,16 @@
 						<h3>Categories</h3>
 							<div class="w3ls_dresses_grid_left_grid_sub">
 								<div class="ecommerce_dres-type">
-									<ul>
-										<li><a href="watches.html">Leather strap</a></li>
-										<li><a href="watches.html">Steel strap</a></li>
-										<li><a href="watches.html">Chain type</a></li>
-										<li><a href="watches.html">Iron strap</a></li>
-									</ul>
+									
+									<div  *ngFor="let cate of allcategory">
+										<ul>
+											<li><a href="category/{{cate._id}}/page/1">{{cate.catname}}</a></li>
+											<div *ngFor="let sub of cate.subcate" >
+											<li>--<a href="">{{sub.name}}</a></li>
+											</div>
+										</ul>
+									</div>
+									
 								</div>
 							</div>
 					</div>
@@ -49,7 +53,7 @@
 			</div>
 			<div class="col-8">
 				<!-- <div><app-saleproduct></app-saleproduct></div> -->
-				<div><app-allproduct></app-allproduct></div>
+				<div><app-allproduct [catId]="categoryId"></app-allproduct></div>
 			</div>
 		</div>
 	</div>

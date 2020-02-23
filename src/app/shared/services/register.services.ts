@@ -58,11 +58,6 @@ export class registerService{
 
         return this.http.post<any>('http://localhost:4600/api/forgotpassword/'+token ,JSON.stringify(data), 
         { headers: this.headers });
-        // { headers: {
-        //     'Access-Control-Allow-Origin': '*',
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json',
-        // }, })   
     }
     Logout() {
         localStorage.removeItem("currentuser");

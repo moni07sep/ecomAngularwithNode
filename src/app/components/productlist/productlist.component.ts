@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms'
-
+import{productService} from '../../shared/services/product.services'
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-productlist',
@@ -9,12 +10,28 @@ import {Validators,FormGroup,FormBuilder} from '@angular/forms'
 })
 export class ProductlistComponent implements OnInit {
 
-  constructor(private fg :FormBuilder) { }
+  constructor(private AR:ActivatedRoute,private productService:productService ,private fg :FormBuilder) { }
   public userForm:FormGroup;
+  allcategory:Array<any>=[];
+  public categoryId:string;
+ 
   ngOnInit() {
     this.userForm = this.fg.group({
       search:''
     })
-  }
+
+    this.AR.params.subscribe(item=>{
+      this.categoryId=item['id'];
+      alert(this.categoryId)
+    })
+
+    this.productService.fetchallCategory().subscribe(item=>{
+      this.allcategory=item
+      console.log(this.allcategory)})
+    }
+    
+
+    
+
 
 }

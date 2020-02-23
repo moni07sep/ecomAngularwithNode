@@ -1,6 +1,6 @@
 import { Iproduct } from './../../shared/model/product';
-import { Component, OnInit } from '@angular/core';
-import{productService} from '../../shared/services/product.services'
+import { Component, OnInit,Input } from '@angular/core';
+import{productService} from '../../shared/services/product.services';
 
 
 @Component({
@@ -12,11 +12,21 @@ export class AllproductComponent implements OnInit {
 
 constructor(private productService:productService) { }
 allproduct:Array<Iproduct>=[];
-  ngOnInit() {
-    this.productService.fetchallPorduct().subscribe(item=>{
-      this.allproduct=item;  
-      console.log(this.allproduct)
-    })
-  }
+productbycategory:Array<any>=[];
 
+@Input() public catId:string;
+
+  ngOnInit() {
+     
+      if (this.catId){
+        this.productService.fetchProductByCategory(this.catId).subscribe(item=>{
+          this.productbycategory=item
+          console.log(this.productbycategory)
+        })
+        }else{
+          this.productService.fetchallPorduct().subscribe(item=>{
+            this.allproduct=item;  
+          })
+        }
+      }
 }

@@ -1,0 +1,23 @@
+<div class="container" >
+    <div class="row" >
+        <div class="col" *ngFor="let pro of productDetails" style="flex:1 0 5%">
+               <div class="card text-black bg-light" style="margin: 10px;">
+                <div class="card-body">
+                   <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}">
+                   <h4 class="card-title">{{pro.name}}</h4>
+                   <p class="card-text">Price : {{pro.price}}</p>
+                   <p class="card-text">Offer Price : {{pro.offerPrice}}</p>
+                 </div>
+               </div>               
+        </div>
+        <div class="col"*ngFor="let pro of productDetails" style="margin: 10px;">
+              
+                  <p class="card-text">Product Name:{{pro.name}}</p>
+                  <p class="card-text">Price : {{pro.price}}</p>
+                  <p class="card-text">Offer Price : {{pro.offerPrice}}</p>
+                  <p class="card-text">Description:{{pro.description}}</p>
+                  
+                  
+        </div>
+    </div>
+</div>

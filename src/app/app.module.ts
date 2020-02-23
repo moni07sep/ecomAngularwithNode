@@ -13,7 +13,8 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { SaleproductComponent } from './components/saleproduct/saleproduct.component';
-import { AllproductComponent } from './components/allproduct/allproduct.component'
+import { AllproductComponent } from './components/allproduct/allproduct.component';
+import { ProductviewComponent } from './components/productview/productview.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AllproductComponent } from './components/allproduct/allproduct.componen
     ResetpasswordComponent,
     ProductlistComponent,
     SaleproductComponent,
-    AllproductComponent
+    AllproductComponent,
+    ProductviewComponent
   ],
   imports: [
     BrowserModule,
