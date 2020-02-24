@@ -35,4 +35,8 @@ export class productService{
         return this.http.get<any[]>("http://localhost:4600/api/productsearch/"+productId)
         
     }
+    pagination():Observable<any[]>{
+        return this.http.get<any[]>("http://localhost:4600/api/product/page/")
+        
+    }
 }

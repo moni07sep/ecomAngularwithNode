@@ -1,11 +1,10 @@
 
 
 <div class="container" >
-  <div class="row" style="display: inline-flex;flex-direction: row;">
-      <div  *ngFor="let pro of allproduct" style="flex:1 0 30%">
-        
+  <div class="list" class="row" style="display: inline-flex;flex-direction: row;">
+      <div  *ngFor="let pro of product| paginate: { itemsPerPage: 2, currentPage: p }" style="flex:1 0 30%">        
              <div class="card text-black bg-light" style="margin: 10px;">
-              <a href="productview/{{pro._id}}">
+              <a routerLink="/productview/{{pro._id}}">
               <div class="card-body">
                  <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}">
                  <h4 class="card-title">{{pro.name}}</h4>
@@ -15,18 +14,6 @@
               </a>
              </div>
       </div>
-      <div  *ngFor="let pro of productbycategory" style="flex:1 0 30%">
-        
-        <div class="card text-black bg-light" style="margin: 10px;">
-          <a href="productview/{{pro._id}}">
-          <div class="card-body">
-            <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}">
-            <h4 class="card-title">{{pro.name}}</h4>
-            <p class="card-text">Price : {{pro.price}}</p>
-            <p class="card-text">Offer Price : {{pro.offerPrice}}</p>
-          </div>
-        </a>
-        </div>
- </div>
   </div>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

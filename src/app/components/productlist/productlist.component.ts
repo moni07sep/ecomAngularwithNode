@@ -22,7 +22,6 @@ export class ProductlistComponent implements OnInit {
 
     this.AR.params.subscribe(item=>{
       this.categoryId=item['id'];
-      alert(this.categoryId)
     })
 
     this.productService.fetchallCategory().subscribe(item=>{

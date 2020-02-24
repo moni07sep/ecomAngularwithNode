@@ -15,7 +15,7 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
 import { SaleproductComponent } from './components/saleproduct/saleproduct.component';
 import { AllproductComponent } from './components/allproduct/allproduct.component';
 import { ProductviewComponent } from './components/productview/productview.component'
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,8 @@ import { ProductviewComponent } from './components/productview/productview.compo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
     
   ],
   providers: [],

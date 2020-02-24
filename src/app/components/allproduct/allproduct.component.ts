@@ -9,9 +9,13 @@ import{productService} from '../../shared/services/product.services';
   styleUrls: ['./allproduct.component.css']
 })
 export class AllproductComponent implements OnInit {
-
-constructor(private productService:productService) { }
-allproduct:Array<Iproduct>=[];
+  collection = [];
+constructor(private productService:productService) {
+  for (let i = 1; i <= 100; i++) {
+    this.collection.push(`item ${i}`);
+  }
+ }
+product:Array<Iproduct>=[];
 productbycategory:Array<any>=[];
 
 @Input() public catId:string;
@@ -20,12 +24,11 @@ productbycategory:Array<any>=[];
      
       if (this.catId){
         this.productService.fetchProductByCategory(this.catId).subscribe(item=>{
-          this.productbycategory=item
-          console.log(this.productbycategory)
+          this.product=item
         })
         }else{
-          this.productService.fetchallPorduct().subscribe(item=>{
-            this.allproduct=item;  
+          this.productService.fetchallPorduct().subscribe((item:any)=>{
+            this.product=item.u 
           })
         }
       }
