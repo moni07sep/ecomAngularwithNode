@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
     if (!this.userForm.valid) {
       return;
    }
-    console.log(data);
      this.userServices.userRegister(data).subscribe(item => {
        alert("Registration done!")
        console.log(item);

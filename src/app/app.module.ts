@@ -16,6 +16,8 @@ import { SaleproductComponent } from './components/saleproduct/saleproduct.compo
 import { AllproductComponent } from './components/allproduct/allproduct.component';
 import { ProductviewComponent } from './components/productview/productview.component'
 import { NgxPaginationModule } from 'ngx-pagination';
+import {FilterPipe} from './pipes/filter.pipe'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProductlistComponent,
     SaleproductComponent,
     AllproductComponent,
-    ProductviewComponent
+    ProductviewComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,6 @@ export class productService{
     private category_by_product_endpoint="http://localhost:4600/api/category/:category/page/:pageIdx";
     private product_details_endpoint="http://localhost:4600/api/productsearch/:id";
 
-
-
     constructor(private http:HttpClient){
     this.headers = new HttpHeaders({ "Content-Type": "application/json" });
     }

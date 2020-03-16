@@ -9,27 +9,33 @@ import{productService} from '../../shared/services/product.services';
   styleUrls: ['./allproduct.component.css']
 })
 export class AllproductComponent implements OnInit {
-  collection = [];
-constructor(private productService:productService) {
-  for (let i = 1; i <= 100; i++) {
-    this.collection.push(`item ${i}`);
-  }
- }
+
+  
+
+constructor(private productService:productService) {}
 product:Array<Iproduct>=[];
 productbycategory:Array<any>=[];
-
+changeLog:Array<any>=[]
+public allItems;
 @Input() public catId:string;
+@Input() public subCatId:any;
 
   ngOnInit() {
-     
+    
+    
+     console.log(this.subCatId);
+     //alert(JSON.stringify(this.subCatId));
       if (this.catId){
         this.productService.fetchProductByCategory(this.catId).subscribe(item=>{
           this.product=item
         })
         }else{
+          //alert(JSON.stringify(this.subCatId));
           this.productService.fetchallPorduct().subscribe((item:any)=>{
             this.product=item.u 
           })
-        }
-      }
+        };
+
+        
+      };
 }

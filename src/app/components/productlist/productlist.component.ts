@@ -9,14 +9,18 @@ import {ActivatedRoute} from '@angular/router'
   templateUrl: './productlist.component.html',
   styleUrls: ['./productlist.component.css']
 })
-export class ProductlistComponent implements OnInit {
+export class ProductlistComponent implements OnInit  {
 
   constructor(private AR:ActivatedRoute,private productService:productService ,private fg :FormBuilder) { }
   public userForm:FormGroup;
   allcategory:Array<any>=[];
   public categoryId:string;
- 
+  public checkedListArray:string
+  
+  public checkedList:Array<any>=[]
   ngOnInit() {
+    //this.checkedListArray="";
+    //console.log(this.checkedList);
     this.userForm = this.fg.group({
       search:''
     })
@@ -27,11 +31,20 @@ export class ProductlistComponent implements OnInit {
 
     this.productService.fetchallCategory().subscribe(item=>{
       this.allcategory=item
-      console.log(this.allcategory)})
+      })
     }
-    
 
-    
-
+    onCheckboxChange(option, event) {
+      
+      if(event) {
+        //console.log(option._id)
+        this.checkedList.push(option._id); 
+        //console.log(this.checkedList);
+      }else{
+        this.checkedList.pop(); 
+        //console.log(this.checkedList);
+      } 
+      this.checkedListArray=this.checkedList.toString()
+    }
 
 }

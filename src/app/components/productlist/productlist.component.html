@@ -12,14 +12,20 @@
 									<div  *ngFor="let cate of allcategory">
 										<ul>
 											<li (click)="cate._id=!cate._id">
-												<a  routerLink="category/{{cate._id}}/page/1">{{i}}{{cate.catname}}
-												</a><i class="fa fa-angle-double-down"></i>
+												<!-- <a  routerLink="category/{{cate._id}}/page/1">{{i}}{{cate.catname}} 
+												</a>--><i class="fa fa-angle-double-down">{{cate.catname}}</i>
 											</li>
 												<div *ngFor="let sub of cate.subcate, index as i" >
 													<li *ngIf="!cate._id"> 
 														<div class="form-check"> 
 															<div class="custom-control custom-checkbox">
-																<input [(ngModel)]="sub.checked" [value]="sub.value" type="checkbox" class="custom-control-input" id="{{sub._id}}">
+																<input 	[(ngModel)]="sub.checked"
+																		 [value]="sub._id" 
+																		 type="checkbox" 
+																		 class="custom-control-input"
+																		 (ngModelChange)="onCheckboxChange(sub,$event)" 
+																		 id="{{sub._id}}"
+																		 >
 																<label class="custom-control-label" for="{{sub._id}}">{{sub.name}}</label>
 															</div>
 														</div>	
@@ -63,7 +69,7 @@
 			</div>
 			<div class="col-8">
 				<!-- <div><app-saleproduct></app-saleproduct></div> -->
-				<div><app-allproduct [catId]="categoryId"></app-allproduct></div>
+				<div><app-allproduct [subCatId]="checkedListArray" [catId]="categoryId"></app-allproduct></div>
 			</div>
 		</div>
 	</div>
