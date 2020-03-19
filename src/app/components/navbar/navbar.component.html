@@ -174,9 +174,16 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/register" *ngIf="!currentUser">Register</a>
                 </li>
+                <div id="ex4">
+                    <a routerLink="/cartlist">
+                        <span class="p1 fa-stack fa-2x has-badge" data-count="1">
+                            <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
+                        </span>
+                    </a>
+                  </div>
                 <li class="nav-item">
                     <a class="nav-link" (click)="Logout()" *ngIf="currentUser"> Logout</a>
-                    </li>
+                </li>
                 
             </ul>
         </div>

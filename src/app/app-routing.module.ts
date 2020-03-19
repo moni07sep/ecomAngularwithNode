@@ -8,6 +8,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { SaleproductComponent } from './components/saleproduct/saleproduct.component';
 import { ProductviewComponent } from './components/productview/productview.component';
+import { CartlistComponent } from './components/cartlist/cartlist.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path:"productview/:id",
     component:ProductviewComponent
+  },
+  {
+    path:"cartlist",
+    component:CartlistComponent
   }
   
 

@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 export class cartService{
     public headers:HttpHeaders
     private item_add_to_cart_endpoint="http://localhost:4600/api/addcartitem";
+    private fetch_cart_item_endpoint="  "
 
     constructor(private http:HttpClient){
         this.headers = new HttpHeaders({ "Content-Type": "application/json" });
@@ -13,6 +14,9 @@ export class cartService{
 
     addItem(data):Observable<any>{
         return this.http.post<any>(this.item_add_to_cart_endpoint,JSON.stringify(data), { headers: this.headers });
+    }
+    fetchCartData(){
+
     }
 
 }

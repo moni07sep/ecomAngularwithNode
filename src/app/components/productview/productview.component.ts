@@ -27,11 +27,31 @@ export class ProductviewComponent implements OnInit {
       })
       
     }
-    AddToCart(data){
-      console.log(data);
-      this.cartService.addItem(data).subscribe(item => {
-        alert("item Added!")
-        console.log(item);
+    AddToCart(dataCart){
+
+      
+        for (var data of dataCart) {
+          var dataArray= {prodId:data._id,
+            name:data.name,
+            image:data.image,
+            price:data.price,
+            quantity:1,
+            totalprice:data.price,
+            recorDate:Date.now(),
+            updateDate:Date.now()}
+            if(!localStorage.getItem("cartdata")){
+              localStorage.setItem("cartdata", JSON.stringify(dataArray));
+            }else{
+              var dataExist=JSON.parse(localStorage.getItem("cartdata"));
+              dataArray.push("dataExist")
+            }
+        }
+      
+
+      
+      
+      this.cartService.addItem(dataArray).subscribe(item => {
+        alert(item.message)
       })
     }
     
