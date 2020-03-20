@@ -33,6 +33,7 @@ public allItems;
           //alert(JSON.stringify(this.subCatId));
           this.productService.fetchallPorduct().subscribe((item:any)=>{
             this.product=item.u 
+            console.log(this.product)
           })
         };
 

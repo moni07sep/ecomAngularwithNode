@@ -15,7 +15,7 @@ export class ProductviewComponent implements OnInit {
   constructor(private AR:ActivatedRoute,
     private cartService:cartService,
     private productService:productService) { }
-  
+    
   ngOnInit() {
 
     this.AR.params.subscribe(item=>{
@@ -27,32 +27,51 @@ export class ProductviewComponent implements OnInit {
       })
       
     }
-    AddToCart(dataCart){
 
-      
+    public itemls=[];
+    AddToCart(dataCart){
         for (var data of dataCart) {
-          var dataArray= {prodId:data._id,
-            name:data.name,
-            image:data.image,
-            price:data.price,
-            quantity:1,
-            totalprice:data.price,
-            recorDate:Date.now(),
-            updateDate:Date.now()}
+          var dataArray= {
+              prodId:data._id,
+              name:data.name,
+              image:data.image,
+              price:data.price,
+              quantity:1,
+              totalprice:data.price,
+              recorDate:Date.now(),
+              updateDate:Date.now()
+            }
+
             if(!localStorage.getItem("cartdata")){
-              localStorage.setItem("cartdata", JSON.stringify(dataArray));
+              localStorage.setItem("cartdata", JSON.stringify([dataArray]));
+              
             }else{
-              var dataExist=JSON.parse(localStorage.getItem("cartdata"));
-              dataArray.push("dataExist")
+              var getItem =JSON.parse(localStorage.getItem("cartdata"));
+              
+              if(Array.isArray(getItem)){
+                getItem.push(dataArray)
+                localStorage.setItem("cartdata", JSON.stringify(getItem))
+                
+              }else{
+              var testA=[]
+              
+              testA.push(getItem);
+              testA.push(dataArray)
+              console.log(testA.toString());
+
+              localStorage.setItem("cartdata", JSON.stringify(testA))
+              
+            };
+              
             }
         }
       
 
       
       
-      this.cartService.addItem(dataArray).subscribe(item => {
-        alert(item.message)
-      })
+      // this.cartService.addItem(dataArray).subscribe(item => {
+      //   alert(item.message)
+      // })
     }
     
 }
