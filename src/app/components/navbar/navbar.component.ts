@@ -1,4 +1,5 @@
 import { registerService } from './../../shared/services/register.services';
+import { cartService } from './../../shared/services/cart.services';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 import {Validators,FormBuilder,FormGroup}from '@angular/forms'
@@ -11,17 +12,21 @@ import {Validators,FormBuilder,FormGroup}from '@angular/forms'
 })
 export class NavbarComponent implements OnInit {
   public currentUser;
-  constructor(private fg :FormBuilder,private registerService:registerService,private router:Router) { }
+  constructor(private cartService:cartService,private fg :FormBuilder,private registerService:registerService,private router:Router) { }
   public userForm:FormGroup;
+
   public itemcount
   public itemData;
+
   ngOnInit() {
     this.itemData=JSON.parse(localStorage.getItem("cartdata"));
     this.itemcount =this.itemData.length
 
-    // this.productviewcomponent.cartItemNo.subscribe(data=>{
+    // this.cartService.updateCartItems(this.itemData.length)
+
+    // this.cartService.totalItem.subscribe(data=>{
     //   this.itemData=data
-    //   console.log(this.itemData)
+    //   alert(this.itemData)
       
     // })
 

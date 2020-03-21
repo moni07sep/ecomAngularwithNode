@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
 import{productService} from '../../shared/services/product.services';
 import{ cartService} from '../../shared/services/cart.services'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productview',
@@ -14,7 +15,7 @@ export class ProductviewComponent implements OnInit {
   public productId:string;
   constructor(private AR:ActivatedRoute,
     private cartService:cartService,
-    private productService:productService) { }
+    private productService:productService,private router:Router) { }
     
   ngOnInit() {
 
@@ -67,7 +68,7 @@ export class ProductviewComponent implements OnInit {
         }
       
 
-      
+        this.router.navigateByUrl("/cartlist")
       
       // this.cartService.addItem(dataArray).subscribe(item => {
       //   alert(item.message)

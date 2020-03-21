@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-cartlist',
   templateUrl: './cartlist.component.html',
@@ -14,7 +15,12 @@ export class CartlistComponent implements OnInit {
   }
 
   delete(data){
-
+    alert(data)
+    console.log(localStorage.getItem("cartdata"))
+    var itemArr=localStorage.getItem("cartdata")
+    var newItemData=JSON.parse(itemArr).filter((item) => item.prodId !== data);
+    localStorage.setItem("cartdata",JSON.stringify(newItemData))
+    this.itemData=JSON.parse(localStorage.getItem("cartdata"));
   }
  
   plus(data){
