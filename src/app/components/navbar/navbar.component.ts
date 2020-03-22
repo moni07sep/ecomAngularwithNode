@@ -22,13 +22,13 @@ export class NavbarComponent implements OnInit {
     this.itemData=JSON.parse(localStorage.getItem("cartdata"));
     this.itemcount =this.itemData.length
 
-    // this.cartService.updateCartItems(this.itemData.length)
+    //this.cartService.updateCartItems(this.itemData.length)
 
-    // this.cartService.totalItem.subscribe(data=>{
-    //   this.itemData=data
-    //   alert(this.itemData)
+    this.cartService.itemRecordObs.subscribe(data=>{
+      this.itemData=data
+      alert(this.itemData)
       
-    // })
+    })
 
     this.registerService.loggedInuser.subscribe(data => {
     this.currentUser = data;
