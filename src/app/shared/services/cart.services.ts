@@ -1,4 +1,4 @@
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
@@ -15,13 +15,15 @@ export class cartService{
 
     constructor(private http:HttpClient){
         this.headers = new HttpHeaders({ "Content-Type": "application/json" });
-        this.itemRecord=new BehaviorSubject(JSON.parse(localStorage.getItem("cartdata")))
+        this.itemRecord=new BehaviorSubject((JSON.parse(localStorage.getItem("cartdata"))).length)
         this.itemRecordObs=this.itemRecord.asObservable();
 
     }
-    updateCartItems(items) {
-        this.itemRecord.next(items);
+    updateCartItems(items:any) {
+       
+        this.itemRecord.next(items);  
     }
+    
 
     addItem(data):Observable<any>{
         return this.http.post<any>(this.item_add_to_cart_endpoint,JSON.stringify(data), { headers: this.headers });

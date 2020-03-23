@@ -1,12 +1,13 @@
-<div class="container" >
+<div class="container table-responsive-lg" >
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Image</th>
             <th scope="col">Name</th>
             <th scope="col">quantity</th>
-            <th scope="col">totalprice</th>
             <th scope="col">remove</th>
+            <th scope="col">totalprice</th>
+            
             
           </tr>
         </thead>
@@ -16,14 +17,30 @@
             
             <td width="100" height="100"><img   src="../../../assets/images/{{item.image}}"></td>
             <td>{{item.name}}</td>
+            
             <td width="100" height="100">
             <button type="button" (click)="minus(item.prodId)" class="btn btn-primary">-</button>
             <input type="text"  value="{{item.quantity}}" name="" id="{{item.prodId}}" class="form-control">
             <button type="button" (click)="plus(item.prodId)" class="btn btn-primary">+</button></td>
-            <td>{{item.totalprice}}</td>
             <td><button type="delete" (click)="delete(item.prodId)"  class="btn btn-primary">X</button></td>
+            <td>{{item.totalprice * item.quantity}}  Rs.</td>
+            
             
           </tr>
+          <tr class="table-dark">
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{totalprice}}  Rs.</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <button type="button" class="btn btn-primary" (click)="buynow()">BUY NOW</button>
+          </tr> 
         </tbody>
       </table>
 </div>

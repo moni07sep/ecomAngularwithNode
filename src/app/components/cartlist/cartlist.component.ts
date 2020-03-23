@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import {cartService} from '../../shared/services/cart.services'
+
 
 
 @Component({
@@ -8,19 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartlistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService:cartService, private router:Router) { }
+
   public itemData;
+  public totalprice:number=0;
   ngOnInit() {
     this.itemData=JSON.parse(localStorage.getItem("cartdata"));
+
+    this.cartService.updateCartItems(this.itemData.length);
+
+    for(let items of this.itemData){
+    this.totalprice=this.totalprice+items.totalprice
+    }
   }
 
   delete(data){
-    alert(data)
+    
     console.log(localStorage.getItem("cartdata"))
     var itemArr=localStorage.getItem("cartdata")
     var newItemData=JSON.parse(itemArr).filter((item) => item.prodId !== data);
     localStorage.setItem("cartdata",JSON.stringify(newItemData))
     this.itemData=JSON.parse(localStorage.getItem("cartdata"));
+    this.cartService.updateCartItems(this.itemData.length);
   }
  
   plus(data){
@@ -35,5 +47,11 @@ export class CartlistComponent implements OnInit {
     (<HTMLInputElement>document.getElementById(data)).value =quant.toString()
 
   }
- 
+
+  buynow(){
+    var loginCheck=localStorage.getItem("currentuser")
+    if(loginCheck==null){
+    this.router.navigateByUrl("/login")
+    }
+  }
 }

@@ -16,18 +16,12 @@ export class NavbarComponent implements OnInit {
   public userForm:FormGroup;
 
   public itemcount
-  public itemData;
+ // public itemData;
 
   ngOnInit() {
-    this.itemData=JSON.parse(localStorage.getItem("cartdata"));
-    this.itemcount =this.itemData.length
-
-    //this.cartService.updateCartItems(this.itemData.length)
-
-    this.cartService.itemRecordObs.subscribe(data=>{
-      this.itemData=data
-      alert(this.itemData)
-      
+    //works when update /add product
+    this.cartService.itemRecordObs.subscribe((data:any) =>{
+      this.itemcount=data
     })
 
     this.registerService.loggedInuser.subscribe(data => {
