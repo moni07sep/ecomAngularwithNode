@@ -22,13 +22,11 @@ export class NavbarComponent implements OnInit {
     //works when update /add product
     this.cartService.itemRecordObs.subscribe((data:any) =>{
       this.itemcount=data
+      
     })
 
     this.registerService.loggedInuser.subscribe(data => {
     this.currentUser = data;
-    this.userForm = this.fg.group({
-      search:''
-    })
     })
   }
   Logout() {

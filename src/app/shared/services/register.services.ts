@@ -12,14 +12,14 @@ export class registerService{
     private forgotPassword_mail_endpoint="http://localhost:4600/api/mail/nodemailer";
     private forgotPassword_reset_endpoint="http://localhost:4600/api/forgotpassword/:token";
     public headers:HttpHeaders
-    //public loggedIn: BehaviorSubject<ILogin>;
-    //private userData:Observable<ILogin>;
-    public loggedIn= new BehaviorSubject(JSON.parse(localStorage.getItem("currentuser")))
-    public loggedInuser=this.loggedIn.asObservable();
-
+    public loggedIn: BehaviorSubject<ILogin>;
+    public loggedInuser:Observable<ILogin>;
+   
     constructor(private http:HttpClient){
         this.headers = new HttpHeaders({ "Content-Type": "application/json" });
-        
+        this.loggedIn= new BehaviorSubject(JSON.parse(localStorage.getItem("currentuser")))
+        this.loggedInuser=this.loggedIn.asObservable();
+    
     }
     userRegister(data:IRegister):Observable<IRegister>{
         return this.http.post<IRegister>(this.register_endpoint,JSON.stringify(data), { headers: this.headers });

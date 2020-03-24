@@ -9,7 +9,7 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
 import { SaleproductComponent } from './components/saleproduct/saleproduct.component';
 import { ProductviewComponent } from './components/productview/productview.component';
 import { CartlistComponent } from './components/cartlist/cartlist.component';
-
+import { Authguard } from './shared/services/authguard/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   {
     path:"home",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[Authguard]
   },
   {
     path:"login",
@@ -55,6 +56,8 @@ const routes: Routes = [
   {
     path:"cartlist",
     component:CartlistComponent
+    
+
   }
   
 
