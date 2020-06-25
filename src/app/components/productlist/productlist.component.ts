@@ -19,8 +19,7 @@ export class ProductlistComponent implements OnInit  {
   
   public checkedList:Array<any>=[]
   ngOnInit() {
-    //this.checkedListArray="";
-    //console.log(this.checkedList);
+    
     this.userForm = this.fg.group({
       search:''
     })

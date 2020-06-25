@@ -22,18 +22,15 @@ public allItems;
 
   ngOnInit() {
     
-    
-     console.log(this.subCatId);
-     //alert(JSON.stringify(this.subCatId));
+    //alert(this.catId);
+     //console.log(this.subCatId);
       if (this.catId){
         this.productService.fetchProductByCategory(this.catId).subscribe(item=>{
           this.product=item
         })
         }else{
-          //alert(JSON.stringify(this.subCatId));
           this.productService.fetchallPorduct().subscribe((item:any)=>{
             this.product=item.u 
-            console.log(this.product)
           })
         };
 

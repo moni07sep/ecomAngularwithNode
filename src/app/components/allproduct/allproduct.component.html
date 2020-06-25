@@ -3,16 +3,23 @@
   <div class="list" class="row" style="display: inline-flex;flex-direction: row;">
       <!-- <div  *ngFor="let pro of product |subCategoryFilter:subCatId| paginate: { itemsPerPage: 2, currentPage: p }" style="flex:1 0 30%">         -->
         <div  *ngFor="let pro of product |subCategoryFilter:subCatId" style="flex:1 0 30%">
-        <div class="card text-black bg-light" style="margin: 10px;">
+        <div  style="padding-bottom: 10px;">
              
               <a routerLink="/productview/{{pro._id}}">
-              <div class="card-body">
-                 <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}">
-                 <h4 class="card-title">{{pro.name}}</h4>
-                 <p class="card-text">Price : {{pro.price}}</p>
-                 <p class="card-text">Offer Price : {{pro.offerPrice}}</p>
+              <div class="card" style="width: 12rem;">
+                 <!-- <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}"> -->
+                 <img class="card-img-top" src="http://localhost:4600/{{pro.image}}"  alt="Card image cap">
+                 <div class="card-body bg-info text-white">
+                   
+                 <div class="card-title ">{{pro.name}}</div> 
+                 <!-- <p class="card-text">Price : {{pro.price}} </p>
+                 <p class="card-text">Offer Price : {{pro.offerPrice}}</p> -->
+                </div>
                </div>
               </a>
+              <!-- <i class="fa fa-download" aria-hidden="true"> -->
+                <a href="http://localhost:4600/{{pro.image}}" download="downloaded"></a>
+            <!-- </i> -->
              </div>
       </div>
   </div>

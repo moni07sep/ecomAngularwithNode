@@ -17,7 +17,10 @@ import { AllproductComponent } from './components/allproduct/allproduct.componen
 import { ProductviewComponent } from './components/productview/productview.component'
 import { NgxPaginationModule } from 'ngx-pagination';
 import {FilterPipe} from './pipes/filter.pipe';
-import { CartlistComponent } from './components/cartlist/cartlist.component'
+import { CartlistComponent } from './components/cartlist/cartlist.component';
+import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { ContactComponent } from './components/contact/contact.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { CartlistComponent } from './components/cartlist/cartlist.component'
     AllproductComponent,
     ProductviewComponent,
     FilterPipe,
-    CartlistComponent
+    CartlistComponent,
+    AdminaddproductComponent,
+    AboutusComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -11,11 +11,16 @@ export class productService{
     private all_category_endpoint="http://localhost:4600/api/fetchallcategory";
     private category_by_product_endpoint="http://localhost:4600/api/category/:category/page/:pageIdx";
     private product_details_endpoint="http://localhost:4600/api/productsearch/:id";
+    private product_add="http://localhost:4600/api/createnewproduct"
 
     constructor(private http:HttpClient){
     this.headers = new HttpHeaders({ "Content-Type": "application/json" });
     }
-
+    
+    productAdd(data){
+        console.log(data)
+        return this.http.post<any>(this.product_add,data);
+    }
     fetchofferPorduct():Observable<Iproduct[]>{
         return this.http.get<Iproduct[]>(this.offer_product_endpoint)
     }

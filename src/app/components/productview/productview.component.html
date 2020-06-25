@@ -3,7 +3,8 @@
         <div class="col" *ngFor="let pro of productDetails" style="flex:1 0 5%">
                <div class="card text-black bg-light" style="margin: 10px;">
                 <div class="card-body">
-                   <img class="img-thumbnail" src="../../../assets/images/{{pro.image}}">
+                   <img class="img-thumbnail" src="http://localhost:4600/{{pro.image}}">
+                   <!-- <img src="http://localhost:4600/{{pro.image}}" class="rounded mb-3" width="10"> -->
                    <h4 class="card-title">{{pro.name}}</h4>
                  </div>
                </div>               
@@ -11,12 +12,15 @@
     
         <div class="col"*ngFor="let pro of productDetails" style="margin: 10px;">
           
-                  <p class="card-text" >Product Name:{{pro.name}}</p>
+                  <p class="card-text">Product Name:{{pro.name}}</p>
                   <p class="card-text">Price : {{pro.price}}</p>
                   <p class="card-text">Offer Price : {{pro.offerPrice}}</p>
                   <p class="card-text">Description:{{pro.description}}</p>
                   
-          <button type="button" class="btn btn-primary" (click)="AddToCart(productDetails)" style="margin: 10px;">Add-to-Cart</button> 
+          <button type="button" class="btn btn-primary" (click)="AddToCart(productDetails)" style="margin: 10px;">Add-to-Cart</button>
+          <button type="button" class="btn btn-primary" (click)="preview(productDetails)" style="margin: 10px;">Preview</button>
+          <button type="button" class="btn btn-primary" (click)="download(productDetails)" style="margin: 10px;">Download</button> 
+          <button type="button" class="btn btn-primary" (click)="print(productDetails)" style="margin: 10px;">Print</button> 
              
           <button type="button" class="btn btn-primary" style="margin: 10px;">Buy Now</button>
         </div>

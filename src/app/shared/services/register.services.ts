@@ -40,9 +40,7 @@ export class registerService{
         return this.http.get(this.LoggedIn_ENDPOINT, { headers: this.headers })
             .pipe(map((data: any) => {
                 if (data && data._id) {
-                    //alert(JSON.stringify(data));
-                    
-                    localStorage.setItem("currentuser", JSON.stringify(data));
+                    localStorage.setItem("currentuser", JSON.stringify(data._id));
                     this.loggedIn.next(data);
                 } else {
                     return data;

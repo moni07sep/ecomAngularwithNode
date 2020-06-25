@@ -1,3 +1,4 @@
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -10,6 +11,8 @@ import { SaleproductComponent } from './components/saleproduct/saleproduct.compo
 import { ProductviewComponent } from './components/productview/productview.component';
 import { CartlistComponent } from './components/cartlist/cartlist.component';
 import { Authguard } from './shared/services/authguard/auth.guard';
+import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -19,7 +22,7 @@ const routes: Routes = [
   {
     path:"home",
     component:HomeComponent,
-    canActivate:[Authguard]
+    
   },
   {
     path:"login",
@@ -46,9 +49,13 @@ const routes: Routes = [
     component:ResetpasswordComponent
   },
   {
-    path:"category/:id/page/:index",
+    path:"productlist/:id",
     component:ProductlistComponent
   },
+  // {
+  //   path:"category/:id/page/:index",
+  //   component:ProductlistComponent
+  // },
   {
     path:"productview/:id",
     component:ProductviewComponent
@@ -56,15 +63,25 @@ const routes: Routes = [
   {
     path:"cartlist",
     component:CartlistComponent
-    
-
+  },
+  {
+    path:"addProduct",
+    component:AdminaddproductComponent
+  },
+  {
+    path:"aboutus",
+    component:AboutusComponent
+  },
+  {
+    path:"contact",
+    component:ContactComponent
   }
-  
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  //imports: [RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes, {useHash: true}) ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

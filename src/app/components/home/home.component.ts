@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit {
     this.userForm = this.fg.group({
       search:''
     })
-    
-    //.homeForm=fg.f
+  
   }
   
   

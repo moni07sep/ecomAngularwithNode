@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform{
         console.log(arg);
         //let argu =JSON.stringify(arg)
         //console.log(val.filter(x => [arg].includes(x.subCatagory)))
-        if(arg===undefined|| arg==[]){
+        if(arg==undefined|| arg==[]){
              return val;
         }else{
             //Typescript filter array of objects by an array

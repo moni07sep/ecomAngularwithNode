@@ -10,11 +10,14 @@ export class cartService{
     public itemRecordObs:Observable<any>
     
     public headers:HttpHeaders
-    private item_add_to_cart_endpoint="http://localhost:4600/api/addcartitem";
+    private item_add_to_cart_endpoint="http://13.234.225.95:5000/api/addcartitem";
     private fetch_cart_item_endpoint="  "
 
     constructor(private http:HttpClient){
         this.headers = new HttpHeaders({ "Content-Type": "application/json" });
+        if(localStorage.getItem("cartdata")==null){
+            localStorage.setItem("cartdata",'[]')
+        }
         this.itemRecord=new BehaviorSubject((JSON.parse(localStorage.getItem("cartdata"))).length)
         this.itemRecordObs=this.itemRecord.asObservable();
 

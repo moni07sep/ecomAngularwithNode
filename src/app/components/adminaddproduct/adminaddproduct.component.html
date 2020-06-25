@@ -1,0 +1,78 @@
+
+
+
+<div class="container">
+	<form [formGroup]="addProductForm" enctype="multipart/form-data" (ngSubmit)="SubmitForm()"> 
+	
+	<div class="row">
+		<h1><i class="fa fa-lock" aria-hidden="true"></i> ADD Product</h1>
+	</div><br /><br /> 
+		<div>
+			<input type="text"  class="form-control" placeholder="Product Name"
+			formControlName="name"
+			>
+		</div><br/>
+		<div class="input-group">
+			<input  type="file"   (change)="imageUpload($event)"
+			 >
+			<img [src]="url" class="rounded mb-3" width="10">
+			
+		</div><br />
+		<div>
+			<input type="text"  class="form-control" placeholder="Description"
+			formControlName="description">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="price"
+			formControlName="price">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="offerPrice"
+			formControlName="offerPrice">
+		</div><br/>
+		<div>
+			<div class="form-group">
+			  <select  class="form-control" formControlName="isAvailable">
+				<option value="" disabled>Choose your profile</option>
+				<option value="1">
+					Yes
+				</option>
+				<option value="0">
+					No
+				</option>
+			</select>
+			 
+			</div>
+			
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="isTodayOffer"
+			formControlName="isTodayOffer">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="catagory"
+			formControlName="catagory">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="subCatagory"
+			formControlName="subCatagory">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="isAdmin"
+			formControlName="isAdmin">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="recordDate"
+			formControlName="recordDate">
+		</div><br/>
+		<div>
+			<input type="text"  class="form-control" placeholder="updateDate"
+			formControlName="updateDate">
+		</div><br/>
+		
+		
+		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Register</button>
+	<div class="footer">	
+	</div>
+	</form> 
+</div>
