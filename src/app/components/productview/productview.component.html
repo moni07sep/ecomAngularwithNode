@@ -2,11 +2,15 @@
     <div class="row" >
         <div class="col" *ngFor="let pro of productDetails" style="flex:1 0 5%">
                <div class="card text-black bg-light" style="margin: 10px;">
-                <div class="card-body">
-                   <img class="img-thumbnail" src="http://localhost:4600/{{pro.image}}">
+                <!-- <div id="printableArea"> -->
+					<div id="print-section">
+					<img class="img"  src="http://localhost:4600/{{pro.image}}"  alt="Card image cap">
+                
+                   <!-- <img class="img " src="http://localhost:4600/{{pro.image}}"> -->
                    <!-- <img src="http://localhost:4600/{{pro.image}}" class="rounded mb-3" width="10"> -->
-                   <h4 class="card-title">{{pro.name}}</h4>
-                 </div>
+				</div>  
+				<h4 class="card-title">{{pro.name}}</h4>
+                 
                </div>               
         </div>
     
@@ -20,9 +24,59 @@
           <button type="button" class="btn btn-primary" (click)="AddToCart(productDetails)" style="margin: 10px;">Add-to-Cart</button>
           <button type="button" class="btn btn-primary" (click)="preview(productDetails)" style="margin: 10px;">Preview</button>
           <button type="button" class="btn btn-primary" (click)="download(productDetails)" style="margin: 10px;">Download</button> 
-          <button type="button" class="btn btn-primary" (click)="print(productDetails)" style="margin: 10px;">Print</button> 
-             
+		  <button  class="btn btn-info" printSectionId="print-section" ngxPrint>Print</button>  
           <button type="button" class="btn btn-primary" style="margin: 10px;">Buy Now</button>
         </div>
     </div>
+</div>
+<div class="footer bg-light">
+	<div class="container row">
+		<div class="col-sm footer-grids fgd1 ">
+
+		</div>
+		<div class="col-sm footer-grids fgd1">
+		
+			<ul> 
+				<li><a href="index.html"><img src="../../../assets/images/logo12.png" alt=" " /></a><h4>THE ART BUNDLE</h4></li>
+		
+				<li>Mumbai Maharashtra</li>
+				<li>India</li>
+				<li><a href="mailto:theartbundle@gmail.com">theartbundle@gmail.com</a></li>
+				<a href="http://instagram.com/the_art_bundle" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				<a href="https://in.pinterest.com/theartbundle/boards/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+				<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				
+				
+			</ul>
+		</div>
+		<div class="col-sm footer-grids fgd2">
+			<h4>Information</h4> 
+			<ul>
+				<li><a routerLink="/contact">Contact Us</a></li>
+				<li><a href="faq.html">FAQ's</a></li>
+			</ul>
+		</div>
+		<div class="col-sm footer-grids fgd3">
+			<h4>Print</h4> 
+			<ul>
+				<li><a routerLink="/productlist/5e42b3748b8b213444a70216">Mandala</a></li>
+				<li><a routerLink="/productlist/5e43a8581c2603380c47ae4d">Adult coloring </a></li>
+				<li><a routerLink="/productlist/5efc921a27e1351dcc771d20">Color by number </a></li>
+				<li><a routerLink="/productlist/5efc885827e1351dcc771d1c">Floral</a></li>
+				<li><a routerLink="/productlist/5efc937327e1351dcc771d22">Dot to dot  </a></li>
+			</ul>
+		</div>
+		<div class="col-sm footer-grids fgd4">
+			<h4>My Account</h4> 
+			<ul>
+				
+				<li><a routerLink="/login" *ngIf="!currentUser">Login</a></li>
+				<li><a routerLink="/register" *ngIf="!currentUser">Register</a></li>
+				<!-- <li><a href="recommended.html">Recommended </a></li>
+				<li><a href="payment.html">Payments</a></li> -->
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<p class="copy-right col-sm-12" >© 2020 THE ART BUNDLE | WWW.THEARTBUNDLE.CLUB | All rights reserved | All photos, images and text are copyright protected. Not to be used without permission.
+	</div>
 </div>

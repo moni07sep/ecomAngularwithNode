@@ -1,6 +1,7 @@
 import { Iproduct } from './../../shared/model/product';
 import { Component, OnInit,Input } from '@angular/core';
 import{productService} from '../../shared/services/product.services';
+import {ActivatedRoute,NavigationEnd, Router} from '@angular/router'
 
 
 @Component({
@@ -12,28 +13,40 @@ export class AllproductComponent implements OnInit {
 
   
 
-constructor(private productService:productService) {}
+constructor(private router: Router,private AR:ActivatedRoute,private productService:productService) {}
 product:Array<Iproduct>=[];
 productbycategory:Array<any>=[];
 changeLog:Array<any>=[]
 public allItems;
+public categoryId:string;
+
 @Input() public catId:string;
 @Input() public subCatId:any;
 
+
   ngOnInit() {
-    
-    //alert(this.catId);
-     //console.log(this.subCatId);
-      if (this.catId){
-        this.productService.fetchProductByCategory(this.catId).subscribe(item=>{
-          this.product=item
+
+  //subscribes every changes of your route
+   this.router.events.subscribe((event) => {
+    if (event instanceof NavigationEnd){
+       //scroll to top
+       window.scrollTo(0,0);
+      }
+    });
+
+    this.AR.params.subscribe(item=>{
+    this.categoryId=item['id'];
+    if (this.categoryId){
+          this.productService.fetchProductByCategory(this.categoryId).subscribe(item=>{
+          this.product=item  
         })
         }else{
           this.productService.fetchallPorduct().subscribe((item:any)=>{
             this.product=item.u 
           })
         };
-
-        
-      };
+    })    
+    };
+    
+      
 }

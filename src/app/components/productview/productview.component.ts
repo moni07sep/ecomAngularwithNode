@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router'
 import{productService} from '../../shared/services/product.services';
 import{ cartService} from '../../shared/services/cart.services'
 import { Router } from '@angular/router';
+import {NgxPrintModule} from 'ngx-print';
 
 @Component({
   selector: 'app-productview',
@@ -29,6 +30,19 @@ export class ProductviewComponent implements OnInit {
       
     }
 
+    //print
+//     print(divName) {
+//       var printContents = document.getElementById(divName).innerHTML;
+//       var originalContents = document.body.innerHTML;
+ 
+//       document.body.innerHTML = printContents;
+ 
+//       window.print();
+ 
+//       document.body.innerHTML = originalContents;
+//       window.location.reload(); 
+//  }
+    
     public itemls=[];
     AddToCart(dataCart){
         for (var data of dataCart) {

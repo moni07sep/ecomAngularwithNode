@@ -21,6 +21,7 @@ import { CartlistComponent } from './components/cartlist/cartlist.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component'
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ContactComponent } from './components/contact/contact.component'
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    NgxPrintModule
     
   ],
   providers: [],

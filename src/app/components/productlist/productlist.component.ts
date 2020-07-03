@@ -24,15 +24,28 @@ export class ProductlistComponent implements OnInit  {
       search:''
     })
 
-    this.AR.params.subscribe(item=>{
-      this.categoryId=item['id'];
-    })
+    // this.AR.params.subscribe(item=>{
+    //   this.categoryId=item['id'];
+    //   //alert(this.categoryId);
+    // })
 
     this.productService.fetchallCategory().subscribe(item=>{
       this.allcategory=item
       })
     }
 
+    isShowDiv = true;
+    toggle = {};
+    toggleDisplayDiv(j) {
+      this.toggle[j] = !this.toggle[j]
+      // alert("dd");
+      // alert(this.checkedList)
+      // this.checkedListArray="";
+      //alert(j);
+        
+     
+      
+    }
     onCheckboxChange(option, event) {
       
       if(event) {

@@ -9,17 +9,25 @@
 							<div class="w3ls_dresses_grid_left_grid_sub">
 								<div class="ecommerce_dres-type">
 									
-									<div  *ngFor="let cate of allcategory">
-										<ul>
-											<li (click)="cate._id=!cate._id">
+									<div  *ngFor="let cate of allcategory index as j">
+										<ul>					
+											<li>
+												<a routerLink="/productlist/{{cate._id}}">
+												<button (click)="toggleDisplayDiv(j)" type="button" class="btn btn-outline-info">{{cate.catname}}</button></a>
+												
+											<!-- <li (click)="cate._id=!cate._id"> -->
 												<!-- <a  routerLink="category/{{cate._id}}/page/1">{{i}}{{cate.catname}} 
-												</a>--><i class="fa fa-angle-double-down">{{cate.catname}}</i>
+												</a>-->
+												<!-- <a routerLink="/productlist/{{cate._id}}">
+												<i class="fa fa-angle-double-down">{{cate.catname}}</i> 
+											</a> -->
 											</li>
-												<div *ngFor="let sub of cate.subcate, index as i" >
-													<li *ngIf="!cate._id"> 
+												<div   [hidden]="!toggle[j]" *ngFor="let sub of cate.subcate, index as i" >
+													<!-- <li *ngIf="!cate._id">  -->
+														<li>
 														<div class="form-check"> 
-															<div class="custom-control custom-checkbox">
-																<input 	[(ngModel)]="sub.checked"
+															<div    class="checkbox custom-control custom-checkbox">
+																<input  [(ngModel)]="sub.checked"
 																		 [value]="sub._id" 
 																		 type="checkbox" 
 																		 class="custom-control-input"
@@ -37,7 +45,7 @@
 									</div>
 								</div>
 							</div>
-					<div class="w3ls_dresses_grid_left_grid">
+					<!-- <div class="w3ls_dresses_grid_left_grid">
 						<h3>Color</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color">
@@ -51,8 +59,8 @@
 								</ul>
 							</div>
 						</div>
-					</div>
-					<div class="w3ls_dresses_grid_left_grid">
+					</div> -->
+					<!-- <div class="w3ls_dresses_grid_left_grid">
 						<h3>Size</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color ecommerce_size">
@@ -64,7 +72,7 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="col-8">
@@ -75,21 +83,54 @@
 	</div>
 </div>
 
-<!-- newsletter -->
-	<div class="newsletter">
-		<div class="container">
-			<div class="col-md-6 w3agile_newsletter_left">
-				<h2>Newsletter</h2>
-				<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-			</div>
-			<div class="col-md-6 w3agile_newsletter_right">
-				<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
-					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="submit" value="Subscribe" />
-				</form>
-			</div>
-			<div class="clearfix"> </div>
+<div class="footer bg-light">
+	<div class="container row">
+		<div class="col-sm footer-grids fgd1 ">
+
 		</div>
+		<div class="col-sm footer-grids fgd1">
+		
+			<ul> 
+				<li><a href="index.html"><img src="../../../assets/images/logo12.png" alt=" " /></a><h4>THE ART BUNDLE</h4></li>
+		
+				<li>Mumbai Maharashtra</li>
+				<li>India</li>
+				<li><a href="mailto:theartbundle@gmail.com">theartbundle@gmail.com</a></li>
+				<a href="http://instagram.com/the_art_bundle" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				<a href="https://in.pinterest.com/theartbundle/boards/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+				<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				
+				
+			</ul>
+		</div>
+		<div class="col-sm footer-grids fgd2">
+			<h4>Information</h4> 
+			<ul>
+				<li><a routerLink="/contact">Contact Us</a></li>
+				<li><a href="faq.html">FAQ's</a></li>
+			</ul>
+		</div>
+		<div class="col-sm footer-grids fgd3">
+			<h4>Print</h4> 
+			<ul>
+				<li><a routerLink="/productlist/5e42b3748b8b213444a70216">Mandala</a></li>
+				<li><a routerLink="/productlist/5e43a8581c2603380c47ae4d">Adult coloring </a></li>
+				<li><a routerLink="/productlist/5efc921a27e1351dcc771d20">Color by number </a></li>
+				<li><a routerLink="/productlist/5efc885827e1351dcc771d1c">Floral</a></li>
+				<li><a routerLink="/productlist/5efc937327e1351dcc771d22">Dot to dot  </a></li>
+			</ul>
+		</div>
+		<div class="col-sm footer-grids fgd4">
+			<h4>My Account</h4> 
+			<ul>
+				
+				<li><a routerLink="/login" *ngIf="!currentUser">Login</a></li>
+				<li><a routerLink="/register" *ngIf="!currentUser">Register</a></li>
+				<!-- <li><a href="recommended.html">Recommended </a></li>
+				<li><a href="payment.html">Payments</a></li> -->
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<p class="copy-right col-sm-12" >© 2020 THE ART BUNDLE | WWW.THEARTBUNDLE.CLUB | All rights reserved | All photos, images and text are copyright protected. Not to be used without permission.
 	</div>
-<!-- //newsletter -->
-<div class="footer">
+</div>

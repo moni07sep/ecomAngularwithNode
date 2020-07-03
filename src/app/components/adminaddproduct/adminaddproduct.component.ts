@@ -18,15 +18,15 @@ export class AdminaddproductComponent implements OnInit {
   ngOnInit() {
    
     this.addProductForm=this.fb.group({
-      "name":["Mandala-TAB-72"],
+      "name":["Adult-TAB-72"],
       "image":[],
-      "description":["Description:Mandala art therapy is a form of psychotherapy in which a trained therapist guides clients through a variety of artistic processes using geometric patterns in an effort to find or restore a sense of healthy mental balance."],
+      "description":["This stunning colouring print offers a practical exercise in mindfulness that draws on your creativity and hones your focus."],
       "price":[60],
       "offerPrice":[0],
       "isAvailable":[0],
       "isTodayOffer":[0],
-      "catagory":['5e42b3748b8b213444a70216'],
-      "subCatagory":['5e42a8ed94a5ad29089453d2'],
+      "catagory":['5e43a8581c2603380c47ae4d'],
+      "subCatagory":['5e42a8d694a5ad29089453d1'],
       "isAdmin":[0],
       "recordDate":[],
       "updateDate":[]

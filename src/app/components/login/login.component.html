@@ -2,8 +2,8 @@
 <div class="container">
 	<h2 class="alert alert-dander" *ngIf="showErrorMessage">hey,{{showErrorMessage}}</h2>
 	<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
-	<div class="row">
-		 <h1><i class="fa fa-lock" aria-hidden="true"></i> Login</h1>
+	<div class="row text-white">
+		 <h1><i class="fa fa-lock " aria-hidden="true"></i> Login</h1>
         </div><br /><br />      
 		<div formGroupName="userLogin">
 			<div class="input-group">
@@ -22,12 +22,12 @@
 			</div><br />
 			</div>           
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Login</button>
-        OR
+        <!-- OR
         <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span>Login with Facebook </button><br />
-               <br /> <div style="border:1px solid black;height:1px;width:365px;"></div><br />
+               <br /> <div style="border:1px solid black;height:1px;width:365px;"></div><br /> -->
         <div class="footer">
-                  <p>Don't have an Account! <a href="register">Sign Up Here</a></p>
-          <p>Forgot <a href="forgotpassword">Password?</a></p>
+                  <p>Don't have an Account! <a routerLink="/register">Sign Up Here</a></p>
+          <p>Forgot <a routerLink="/forgotpassword">Password?</a></p>
         </div>
 	</form>
 	</div>
