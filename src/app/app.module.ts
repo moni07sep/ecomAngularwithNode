@@ -22,6 +22,7 @@ import { AdminaddproductComponent } from './components/adminaddproduct/adminaddp
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component'
 import { NgxPrintModule } from 'ngx-print';
+import { PinchZoomModule } from 'ngx-pinch-zoom';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NgxPrintModule } from 'ngx-print';
     AdminaddproductComponent,
     AboutusComponent,
     ContactComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,9 @@ import { NgxPrintModule } from 'ngx-print';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    NgxPrintModule
+    NgxPrintModule,
+    PinchZoomModule 
+  
     
   ],
   providers: [],

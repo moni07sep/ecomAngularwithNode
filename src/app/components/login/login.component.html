@@ -1,6 +1,5 @@
 
 <div class="container">
-	<h2 class="alert alert-dander" *ngIf="showErrorMessage">hey,{{showErrorMessage}}</h2>
 	<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
 	<div class="row text-white">
 		 <h1><i class="fa fa-lock " aria-hidden="true"></i> Login</h1>
@@ -8,21 +7,26 @@
 		<div formGroupName="userLogin">
 			<div class="input-group">
 				<input type="text"  class="form-control" placeholder="Email Id"
-				[class.is-valid]="userForm.controls.userLogin.controls.emailId.valid"
-				[class.is-invalid]="!userForm.controls.userLogin.controls.emailId.valid && submitted"
+				[class.is-valid]="userForm.get('userLogin').get('emailId').valid"
+				[class.is-invalid]="!userForm.get('userLogin').get('emailId').valid && submitted"
 				formControlName="emailId"
 				>
-			</div><br />
+			</div>
+			<br />
 			<div class="input-group">
 				<input type="text"  class="form-control" placeholder="Password"
-				[class.is-valid]="userForm.controls.userLogin.controls.password.valid"
-				[class.is-invalid]="!userForm.controls.userLogin.controls.password.valid && submitted"
+				[class.is-valid]="userForm.get('userLogin').get('password').valid"
+				[class.is-invalid]="!userForm.get('userLogin').get('password').valid && submitted"
 				formControlName="password"
 				>
-			</div><br />
-			</div>           
-        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Login</button>
-        <!-- OR
+			</div>
+			
+			<br />
+			</div> 
+			          
+        <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-off"></span> Login</button>
+		<div  class="text-danger" *ngIf="showErrorMessage">{{showErrorMessage}}</div>
+		<!-- OR
         <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span>Login with Facebook </button><br />
                <br /> <div style="border:1px solid black;height:1px;width:365px;"></div><br /> -->
         <div class="footer">

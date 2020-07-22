@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   
   constructor(private fg :FormBuilder,private registerService:registerService) { }
   public userForm:FormGroup;
-  
+  currentUser;
   ngOnInit() {
     this.registerService.userData().subscribe(data => {
     })

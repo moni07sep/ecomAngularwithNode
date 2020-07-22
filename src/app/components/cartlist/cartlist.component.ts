@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {cartService} from '../../shared/services/cart.services'
+import {url} from '../../../../src/url.const'
 
 
 
@@ -27,7 +28,7 @@ export class CartlistComponent implements OnInit {
 
   delete(data){
     
-    console.log(localStorage.getItem("cartdata"))
+    //console.log(localStorage.getItem("cartdata"))
     var itemArr=localStorage.getItem("cartdata")
     var newItemData=JSON.parse(itemArr).filter((item) => item.prodId !== data);
     localStorage.setItem("cartdata",JSON.stringify(newItemData))

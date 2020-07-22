@@ -1,6 +1,7 @@
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {url} from '../../../../src/url.const'
 
 @Injectable({providedIn:"root"})
 
@@ -10,7 +11,7 @@ export class cartService{
     public itemRecordObs:Observable<any>
     
     public headers:HttpHeaders
-    private item_add_to_cart_endpoint="http://13.234.225.95:5000/api/addcartitem";
+    private item_add_to_cart_endpoint=url+"api/addcartitem";
     private fetch_cart_item_endpoint="  "
 
     constructor(private http:HttpClient){

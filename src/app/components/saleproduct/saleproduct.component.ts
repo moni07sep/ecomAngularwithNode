@@ -9,11 +9,12 @@ import{productService} from '../../shared/services/product.services'
 })
 export class SaleproductComponent implements OnInit {
   saleprolist:Array<Iproduct>=[];
+  public userForm;
+  currentUser;
   constructor(private productService:productService) { }
   ngOnInit() {
     this.productService.fetchofferPorduct().subscribe(item=>{
       this.saleprolist=item;  
-      console.log(this.saleprolist)
     })
   }
 }

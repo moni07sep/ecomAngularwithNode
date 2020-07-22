@@ -30,15 +30,13 @@ export class LoginComponent implements OnInit {
     if(!this.userForm.valid){
       return;
     }
-    console.log(data);
     this.userService.userLogin(data).subscribe(item=>{
       alert("login succsesful");
-      console.log(item)
       this.router.navigateByUrl("/home");   
     },
     (ex:any) => {
-      console.log(ex.error);
-      this.showErrorMessage = ex.error.messsage
+      //console.log(ex.error);
+      this.showErrorMessage = ex.error.message
     }
     )
   }

@@ -13,14 +13,7 @@
 										<ul>					
 											<li>
 												<a routerLink="/productlist/{{cate._id}}">
-												<button (click)="toggleDisplayDiv(j)" type="button" class="btn btn-outline-info">{{cate.catname}}</button></a>
-												
-											<!-- <li (click)="cate._id=!cate._id"> -->
-												<!-- <a  routerLink="category/{{cate._id}}/page/1">{{i}}{{cate.catname}} 
-												</a>-->
-												<!-- <a routerLink="/productlist/{{cate._id}}">
-												<i class="fa fa-angle-double-down">{{cate.catname}}</i> 
-											</a> -->
+												<button  [ngClass]="(cate._id === cate.catname)?'Active':'Active'"  (click)="toggleDisplayDiv(j)" type="button" class="btn btn-outline-info">{{cate.catname}}</button></a>
 											</li>
 												<div   [hidden]="!toggle[j]" *ngFor="let sub of cate.subcate, index as i" >
 													<!-- <li *ngIf="!cate._id">  -->
@@ -33,7 +26,7 @@
 																		 class="custom-control-input"
 																		 (ngModelChange)="onCheckboxChange(sub,$event)" 
 																		 id="{{sub._id}}"
-																		 >
+																		 #checkboxes>
 																<label class="custom-control-label" for="{{sub._id}}">{{sub.name}}</label>
 															</div>
 														</div>	
@@ -91,7 +84,7 @@
 		<div class="col-sm footer-grids fgd1">
 		
 			<ul> 
-				<li><a href="index.html"><img src="../../../assets/images/logo12.png" alt=" " /></a><h4>THE ART BUNDLE</h4></li>
+				<li><a href="index.html"></a><h4>TheArtBundle</h4></li>
 		
 				<li>Mumbai Maharashtra</li>
 				<li>India</li>

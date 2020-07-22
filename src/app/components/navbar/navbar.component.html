@@ -1,7 +1,8 @@
+
 <div class="header-top-w3layouts">
     <div class="container">
-        <div class="col-md-6 logo-w3">
-            <a href="index.html"><img src="../../../assets/images/logo12.png" alt=" " /><h1>THEARTBUNDLE<span></span></h1></a>
+        <div class=" logo-w3">
+            <a href="index.html"><h1>TheArtBundle<span ></span></h1></a>
         </div>
         <div class="col-md-6 phone-w3l">
             <ul>
@@ -47,7 +48,7 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <h4 *ngIf="currentUser" >Hello, {{currentUser.firstName}} {{currentUser.lastName}}</h4>
+                <div  class="nav-link text-info" *ngIf="currentUser" >{{currentUser.firstName}} {{currentUser.lastName}}</div>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/login" *ngIf="!currentUser">Login</a>
                 </li>

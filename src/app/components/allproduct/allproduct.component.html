@@ -1,17 +1,19 @@
-
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 <div class="container" >
   <div class="list" class="row">
-              <div class="col-lg-4 d-flex align-items-stretch" *ngFor="let pro of product |subCategoryFilter:subCatId" >
-              <a routerLink="/productview/{{pro._id}}">
+              <div class="col-lg-4 d-flex align-items-stretch" 
+              *ngFor="let pro of product  |subCategoryFilter:subCatId |paginate:{ itemsPerPage: 12, currentPage: p };
+              "
+               >
+                <a routerLink="/productview/{{pro._id}}">
               <div class="card" style="width: 12rem;">
-                <img  class="card-img-top img"  src="http://localhost:4600/{{pro.image}}"  alt="Card image cap">
-                 <div class="card-body bg-info text-white">                  
+                <img  class="card-img-top img"  src="http://13.235.0.103/ecomProject/uploads/{{pro.image}}"  alt="Card image cap">
+                 <div class="card-body text-white cardbgcolor-1"  >                  
                  <div class="card-text ">{{pro.name}}</div> 
                 </div>
                </div>
               </a>
-              <a href="http://localhost:4600/{{pro.image}}" download="downloaded"></a>
+              <a href="http://13.235.0.103/ecomProject/uploads/{{pro.image}}" download="downloaded"></a>
              </div>
   </div>
 </div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>

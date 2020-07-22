@@ -25,13 +25,15 @@ export class ForgotpasswordComponent implements OnInit {
 
   }
   forgotPassword(data:any){
-  
     this.submitted=true;
     if(!this.userForm.valid){
       return;
     }
     this.registerService.sendMail(data).subscribe(item=>{
      alert("please check your mail");
+    },
+    (ex:any) => {
+      this.showErrorMessage = ex.error.message
     })
   }
 

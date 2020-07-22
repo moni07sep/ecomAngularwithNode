@@ -65,7 +65,7 @@ const routes: Routes = [
     component:CartlistComponent
   },
   {
-    path:"addProduct",
+    path:"addProduct@1324rgdfghfkhiokl46765765dcxxcggfkjj",
     component:AdminaddproductComponent
   },
   {

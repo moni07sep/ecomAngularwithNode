@@ -1,8 +1,8 @@
 .container{
-    border:2px solid rgb(91, 192, 222);
+    border:2px solid#A1c3D1;
     text-align:center;
     
-    height:500px;
+    height:700px;
     width:400px;
 }
 body{
@@ -14,5 +14,5 @@ h1{
 .row{
     height:90px;
     width:396px;
-    background-color:rgb(91, 192, 222)
+    background-color:#A1c3D1
 }

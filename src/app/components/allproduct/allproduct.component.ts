@@ -1,7 +1,9 @@
+
 import { Iproduct } from './../../shared/model/product';
 import { Component, OnInit,Input } from '@angular/core';
 import{productService} from '../../shared/services/product.services';
-import {ActivatedRoute,NavigationEnd, Router} from '@angular/router'
+import {ActivatedRoute,NavigationEnd, Router} from '@angular/router';
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import {ActivatedRoute,NavigationEnd, Router} from '@angular/router'
 })
 export class AllproductComponent implements OnInit {
 
-  
+p: number = 1;
 
 constructor(private router: Router,private AR:ActivatedRoute,private productService:productService) {}
 product:Array<Iproduct>=[];
@@ -21,8 +23,7 @@ public allItems;
 public categoryId:string;
 
 @Input() public catId:string;
-@Input() public subCatId:any;
-
+@Input() public subCatId:any;  
 
   ngOnInit() {
 
@@ -38,14 +39,17 @@ public categoryId:string;
     this.categoryId=item['id'];
     if (this.categoryId){
           this.productService.fetchProductByCategory(this.categoryId).subscribe(item=>{
-          this.product=item  
+          this.product=item
+          this.p=1;
         })
         }else{
           this.productService.fetchallPorduct().subscribe((item:any)=>{
             this.product=item.u 
+            this.p=1;
           })
         };
-    })    
+    })
+       
     };
     
       

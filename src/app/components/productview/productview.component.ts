@@ -4,6 +4,8 @@ import{productService} from '../../shared/services/product.services';
 import{ cartService} from '../../shared/services/cart.services'
 import { Router } from '@angular/router';
 import {NgxPrintModule} from 'ngx-print';
+import { saveAs , FileSaver} from 'file-saver';
+
 
 @Component({
   selector: 'app-productview',
@@ -14,6 +16,7 @@ export class ProductviewComponent implements OnInit {
   public productDetails:Array<any>=[];
   public productDetails1:Array<any>=[];
   public productId:string;
+  currentUser;
   constructor(private AR:ActivatedRoute,
     private cartService:cartService,
     private productService:productService,private router:Router) { }
@@ -29,20 +32,20 @@ export class ProductviewComponent implements OnInit {
       })
       
     }
+    downloadImg(data: any) {
+      const blobData = new Blob([data], { type: 'png/jpg' });
+      const url = window.URL.createObjectURL(blobData);
+      saveAs(blobData, "the_art_bundle_coloring_page.jpg"); 
+      return window.open(url); 
+    }
 
-    //print
-//     print(divName) {
-//       var printContents = document.getElementById(divName).innerHTML;
-//       var originalContents = document.body.innerHTML;
- 
-//       document.body.innerHTML = printContents;
- 
-//       window.print();
- 
-//       document.body.innerHTML = originalContents;
-//       window.location.reload(); 
-//  }
-    
+    download(image){
+        this.productService.fetchImg(image)
+        .subscribe(
+            (data) => this.downloadImg(data)
+        )
+      }
+      
     public itemls=[];
     AddToCart(dataCart){
         for (var data of dataCart) {
@@ -72,7 +75,7 @@ export class ProductviewComponent implements OnInit {
               
               testA.push(getItem);
               testA.push(dataArray)
-              console.log(testA.toString());
+              //console.log(testA.toString());
 
               localStorage.setItem("cartdata", JSON.stringify(testA))
               

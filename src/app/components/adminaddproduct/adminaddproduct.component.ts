@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormBuilder,FormGroup }from '@angular/forms'
 import{productService} from '../../shared/services/product.services'
+import { registerService } from './../../shared/services/register.services';
 
 @Component({
   selector: 'app-adminaddproduct',
@@ -9,31 +10,49 @@ import{productService} from '../../shared/services/product.services'
 })
 export class AdminaddproductComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private productService:productService) { }
+  constructor(private fb:FormBuilder,private registerService:registerService, private productService:productService) { }
   public addProductForm:FormGroup;
   public submitted:boolean=false;
-
+  allcategory:Array<any>=[];
+  subcategory:Array<any>=[];
   seletedValue = 'Select'; 
+  currentUser ;
 
   ngOnInit() {
+
+    this.productService.fetchallCategory().subscribe(item=>{
+      this.allcategory=item; 
+    })
+
+    //set admin code
+    // this.registerService.loggedInuser.subscribe(data => {
+    //   this.currentUser = data;
+    //   alert(data)
+    //   })
    
     this.addProductForm=this.fb.group({
-      "name":["Adult-TAB-72"],
-      "image":[],
-      "description":["This stunning colouring print offers a practical exercise in mindfulness that draws on your creativity and hones your focus."],
-      "price":[60],
-      "offerPrice":[0],
-      "isAvailable":[0],
-      "isTodayOffer":[0],
-      "catagory":['5e43a8581c2603380c47ae4d'],
-      "subCatagory":['5e42a8d694a5ad29089453d1'],
-      "isAdmin":[0],
+      "name":["",Validators.required],
+      "image":["",Validators.required],
+      "description":["",Validators.required],
+      "price":["",Validators.required],
+      "offerPrice":["",Validators.required],
+      "isAvailable":["",Validators.required],
+      "isTodayOffer":["",Validators.required],
+      "catagory":["",Validators.required],
+      "subCatagory":["",Validators.required],
+      "isAdmin":["",Validators.required],
       "recordDate":[],
       "updateDate":[]
       
     })
   }
-  SubmitForm(data){
+  changeCountry(cat_id) { 
+    this.subcategory = this.allcategory.find(con => con._id == cat_id).subcate;
+  }
+  
+  
+  SubmitForm(){
+    
     const formData :FormData = new FormData(); // Currently empty
     formData.append('image', this.selectedFile,this.selectedFile.name);
     formData.append('name', this.addProductForm.get('name').value);
@@ -49,21 +68,19 @@ export class AdminaddproductComponent implements OnInit {
     this.productService.productAdd(formData).subscribe(
     (response) => console.log(response),
     (error) => console.log(error)
-      )
+    )
+    alert("Product Added");
   }
   selectedFile: File;
   url:any;
   imageUpload(event){
     
-     this.selectedFile = (event.target).files[0];
-
-     
-    
-    // var reader = new FileReader();
-    // reader.onload = (event: any) => {
-    //   this.url = event.target.result;
-    // }
-    // reader.readAsDataURL(event.target.files[0]);
+    this.selectedFile = (event.target).files[0];
+    var reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.url = event.target.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
 
   }
 

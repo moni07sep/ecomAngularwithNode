@@ -1,41 +1,47 @@
 
 <div class="container">
+	
 	<form [formGroup]="userForm" (ngSubmit)="SubmitForm(userForm.value)">
 	<div class="row text-white">
 		<h1><i class="fa fa-lock" aria-hidden="true"></i> Register</h1>
 	</div><br /><br /> 
 		<div>
 			<input type="text"  class="form-control" placeholder="First Name"
-			[class.is-valid]="userForm.controls.firstName.valid"
-			[class.is-invalid]="!userForm.controls.firstName.valid && submitted"
+			[class.is-valid]="userForm.get('firstName').valid"
+			[class.is-invalid]="!userForm.get('firstName').valid && submitted"
 			formControlName="firstName"
 			>
 		</div><br/>
 		<div class="input-group">
 			<input type="text"  class="form-control" placeholder="Last Name"
-			[class.is-valid]="userForm.controls.lastName.valid"
-			[class.is-invalid]="!userForm.controls.lastName.valid && submitted"
+			[class.is-valid]="userForm.get('lastName').valid"
+			[class.is-invalid]="!userForm.get('lastName').valid && submitted"
 			formControlName="lastName"
 			>
 		</div><br />
 		<div formGroupName="userLogin">
 		<div class="input-group">
 			<input type="text"  class="form-control" placeholder="Email Id"
-			[class.is-valid]="userForm.controls.userLogin.controls.emailId.valid"
-			[class.is-invalid]="!userForm.controls.userLogin.controls.emailId.valid && submitted"
+			[class.is-valid]="userForm.get('userLogin').get('emailId').valid"
+			[class.is-invalid]="!userForm.get('userLogin').get('emailId').valid && submitted"
 			formControlName="emailId"
 			>
-		</div><br />
+		</div>
+		<div class="small">(ex. example@gmail.com)</div><br />
 		<div class="input-group">
 			<input type="text"  class="form-control" placeholder="Password"
-			[class.is-valid]="userForm.controls.userLogin.controls.password.valid"
-			[class.is-invalid]="!userForm.controls.userLogin.controls.password.valid && submitted"
+			[class.is-valid]="userForm.get('userLogin').get('password').valid"
+			[class.is-invalid]="!userForm.get('userLogin').get('password').valid && submitted"
 			formControlName="password"
 			>
-		</div><br />
 		</div>
-		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Register</button>
-	<div class="footer">	
+		<div class="small">(Use 6 or more characters with a mix of capital, small letters, numbers & symbols
+			)</div>
+		<br />
+		</div>
+		<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-off"></span> Register</button>
+		<div  class="text-danger" *ngIf="showErrorMessage">{{showErrorMessage}}</div>
+		<div class="footer">	
 	</div>
 	</form> 
 	</div>

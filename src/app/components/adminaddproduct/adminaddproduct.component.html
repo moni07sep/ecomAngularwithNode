@@ -31,9 +31,22 @@
 			formControlName="offerPrice">
 		</div><br/>
 		<div>
-			<div class="form-group">
-			  <select  class="form-control" formControlName="isAvailable">
-				<option value="" disabled>Choose your profile</option>
+			<div class="form-group">IsAvailable
+			  	<select  class="form-control" formControlName="isAvailable">
+					<option value="1">
+						Yes
+					</option>
+					<option value="0">
+						No
+					</option>
+				</select>
+			</div>
+			
+		</div><br/>
+		<div>isTodayOffer
+				<!-- <input type="text"  class="form-control" placeholder="isTodayOffer"
+				formControlName="isTodayOffer"> -->
+			<select  class="form-control" formControlName="isTodayOffer">
 				<option value="1">
 					Yes
 				</option>
@@ -41,25 +54,28 @@
 					No
 				</option>
 			</select>
-			 
-			</div>
-			
 		</div><br/>
 		<div>
-			<input type="text"  class="form-control" placeholder="isTodayOffer"
-			formControlName="isTodayOffer">
+			<select class="form-control" formControlName="catagory" (change)="changeCountry($event.target.value)">
+			<option>Select</option>
+				<option  *ngFor="let cate of allcategory" value="{{cate._id}}">{{cate.catname}}	
+				</option>	
+			</select>
 		</div><br/>
 		<div>
-			<input type="text"  class="form-control" placeholder="catagory"
-			formControlName="catagory">
+			<select class="form-control" formControlName="subCatagory">
+				<option *ngFor="let sub of subcategory" value="{{sub._id}}">{{sub.name}}</option>
+		</select>
 		</div><br/>
-		<div>
-			<input type="text"  class="form-control" placeholder="subCatagory"
-			formControlName="subCatagory">
-		</div><br/>
-		<div>
-			<input type="text"  class="form-control" placeholder="isAdmin"
-			formControlName="isAdmin">
+		<div>IsAdmin
+			<select  class="form-control"  formControlName="isAdmin">
+				<option value="1">
+					Yes
+				</option>
+				<option value="0">
+					No
+				</option>
+			</select>
 		</div><br/>
 		<div>
 			<input type="text"  class="form-control" placeholder="recordDate"

@@ -10,7 +10,7 @@ import { Regx} from '../register/regx'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  public showErrorMessage:string;
   public userForm:FormGroup;
   public submitted:boolean=false;
 
@@ -18,8 +18,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.userForm= this.fb.group({
-    "firstName": ['',[Validators.required, Regx.FirstCharCapital]],
-      "lastName":  ['',[Validators.required,Regx.FirstCharCapital]],
+    "firstName": ['',[Validators.required]],
+      "lastName":  ['',[Validators.required]],
       "userLogin": this.fb.group({
           "emailId": ['',[Validators.required,Regx.Email]],
           "password": ['',[Validators.required ,Regx.Password]]
@@ -28,14 +28,17 @@ export class RegisterComponent implements OnInit {
   } 
   SubmitForm(data: IRegister) {
     this.submitted = true;
-    
+   
     if (!this.userForm.valid) {
       return;
    }
      this.userServices.userRegister(data).subscribe(item => {
        alert("Registration done!")
-       console.log(item);
-     })
+     
+     },
+     (ex:any) => {
+      this.showErrorMessage = ex.error.message
+    })
 
   }
 

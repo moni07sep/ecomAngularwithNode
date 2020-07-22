@@ -4,13 +4,15 @@ import{ IRegister} from '../model/user.register';
 import{Injectable}from '@angular/core'
 import { Observable, BehaviorSubject, } from 'rxjs';
 import { map } from "rxjs/operators";
+import {url} from '../../../../src/url.const'
+
 @Injectable({providedIn:"root"})
 export class registerService{
-    private register_endpoint="http://localhost:4600/api/createnewuser";
-    private login_endpoint="http://localhost:4600/api/auth";
-    private LoggedIn_ENDPOINT="http://localhost:4600/api/me";
-    private forgotPassword_mail_endpoint="http://localhost:4600/api/mail/nodemailer";
-    private forgotPassword_reset_endpoint="http://localhost:4600/api/forgotpassword/:token";
+    private register_endpoint=url+"api/createnewuser";
+    private login_endpoint=url+"api/auth";
+    private LoggedIn_ENDPOINT=url+"api/me";
+    private forgotPassword_mail_endpoint=url+"api/mail/nodemailer";
+    private forgotPassword_reset_endpoint=url+"api/forgotpassword/:token";
     public headers:HttpHeaders
     public loggedIn: BehaviorSubject<ILogin>;
     public loggedInuser:Observable<ILogin>;
@@ -44,8 +46,11 @@ export class registerService{
                     this.loggedIn.next(data);
                 } else {
                     return data;
-                    }
+                }
         }));
+
+    }
+    userDetails(){
 
     }
     sendMail(data){
@@ -54,7 +59,7 @@ export class registerService{
     }
     resetPassword(data,token){
 
-        return this.http.post<any>('http://localhost:4600/api/forgotpassword/'+token ,JSON.stringify(data), 
+        return this.http.post<any>(url+'api/forgotpassword/'+token ,JSON.stringify(data), 
         { headers: this.headers });
     }
     Logout() {
